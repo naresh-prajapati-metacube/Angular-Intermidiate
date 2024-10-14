@@ -1,0 +1,76 @@
+<div class="container">
+    <h5>Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.</h5>
+    
+    <h6>Lifecycle sequence - After creating a component/directive by calling its constructor, Angular
+        calls the lifecycle hook methods in the following sequence at specific moments:</h6>
+    
+    <table width="100%">
+        <colgroup>
+            <col width="20%">
+            <col width="80%">
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>Hook</th>
+                <th>Purpose and Timing</th>
+            </tr>
+            <tr style="vertical-align:top">
+                <td><code>ngOnInit()</code></td>
+                <td>
+                    <p>Initialize the directive/component after Angular first displays the data-bound properties
+                        and sets the directive/component's input properties.</p>
+                    <p>Called <em>once</em>, after the <em>first </em> <code>ngOnChanges()</code>. </p>
+                </td>
+            </tr>
+            <tr style="vertical-align:top">
+                <td><code>ngDoCheck()</code></td>
+                <td>
+                    <p>Detect and act upon changes that Angular can't or won't detect on its own. </p>
+                    <p>Called during every change detection run, immediately after <code>ngOnChanges()</code> and
+                        <code>ngOnInit()</code>.</p>
+                </td>
+            </tr>
+            <tr style="vertical-align:top">
+                <td><code>ngAfterContentInit()</code></td>
+                <td>
+                    <p>Respond after Angular projects external content into the component's view.</p>
+                    <p>Called <em>once</em> after the first <code>ngDoCheck()</code>.</p>
+                    <p><em>A component-only hook</em>.</p>
+                </td>
+            </tr>
+            <tr style="vertical-align:top">
+                <td><code>ngAfterContentChecked()</code></td>
+                <td>
+                    <p>Respond after Angular checks the content projected into the component.</p>
+                    <p>Called after the <code>ngAfterContentInit()</code> and every subsequent <code>ngDoCheck()</code>.</p>
+                    <p><em>A component-only hook</em>.</p>
+                </td>
+            </tr>
+            <tr style="vertical-align:top">
+                <td><code>ngAfterViewInit()</code></td>
+                <td>
+                    <p>Respond after Angular initializes the component's views and child views.</p>
+                    <p>Called <em>once</em> after the first <code>ngAfterContentChecked()</code>.</p>
+                    <p><em>A component-only hook</em>.</p>
+                </td>
+            </tr>
+            <tr style="vertical-align:top">
+                <td><code>ngAfterViewChecked()</code></td>
+                <td>
+                    <p>Respond after Angular checks the component's views and child views.</p>
+                    <p>Called after the <code>ngAfterViewInit</code> and every subsequent
+                        <code>ngAfterContentChecked()</code>.</p>
+                    <p><em>A component-only hook</em>.</p>
+                </td>
+            </tr>
+            <tr style="vertical-align:top">
+                <td><code>ngOnDestroy()</code></td>
+                <td>
+                    <p>Cleanup just before Angular destroys the directive/component.
+                        Unsubscribe Observables and detach event handlers to avoid memory leaks. </p>
+                    <p>Called <em>just before</em> Angular destroys the directive/component.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

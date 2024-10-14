@@ -1,0 +1,29 @@
+<div class="product-box">
+    <h3>{{ title }}</h3>
+    <img [src]="imageSrc" [alt]="title" class="product-image">
+    <p class="product-price">&#8377; {{ price }}</p>
+    <button *ngIf="!showShippingDetail" (click)="showShippingDetail = true" class="shipping-button">
+        Show Shipping Detail
+    </button>
+    <button *ngIf="showShippingDetail" (click)="showShippingDetail = false" class="shipping-button">
+        Hide Shipping Detail
+    </button>
+</div>
+<div class="shipping-box" [@slideAnimation]="showShippingDetail ? 'expanded' : 'collapsed'">
+
+    <h2>What is a shipping policy?</h2>
+    <p>A Shipping Policy is where you let your customers know important details about how you ship your goods, such as what shipping services you use, what shipping fees are, and what timeframe customers should expect for delivery. A shipping policy page includes:</p> <button type="button" class="btn btn-primary" myHighlight (click)="showShippingTerms = !showShippingTerms">{{showShippingTerms? 'Show Shipping Terms' : 'Hide Shipping Terms'}}</button>
+    <ul *myIf="showShippingTerms">
+        <li>Methods and Prices of Shipping Available</li>
+        <p>The main thing most customers will want to know about your policies and procedures is how much you charge for shipping, and how fast items will arrive.</p>
+        <p>Most ecommerce businesses offer multiple shipping options, from standard ground delivery to expedited or even overnight shipping. These shipping options also come with different price tags.</p>
+        <li>International Shipping Information</li>
+        <p>Some information that's typically included in an international shipping information section will be what's considered international (i.e. anything outside of Canada, anything outside of the EU, etc.), how any tariffs or extra fees will be handled, if the return shipping policy is different than with domestic orders, what currency the order must be placed in and what wil happen if a package gets lost while in transit.</p>
+        <li>Shipping Restrictions</li>
+        <p>If your shipping has other restrictions other than international shipping limits, let your customers know.</p>
+        <li>Handling Time</li>
+        <p>It's important to let your customers know about any handling time that can increase the overall length of time between the ordering and the arrival of their goods.</p>
+        <li>Additional Information</li>
+        <p>This is where you can include any relevant and important information about your shipping practices or policy that your customers would want to know.</p>
+    </ul>
+</div>
